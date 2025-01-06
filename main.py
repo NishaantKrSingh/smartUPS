@@ -3,13 +3,17 @@ import time
 import datetime
 from discord_webhook import DiscordWebhook
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # Configuration
 COM_PORT = "/dev/ttyUSB0"  # Replace with your COM port (e.g., COM3, /dev/ttyUSB0)
 BAUD_RATE = 9600   # Set to match your Arduino baud rate
 rep = 0
 ctr = datetime.datetime.now()
-hook = "https://discord.com/api/webhooks/1313992892179550268/cdtcWvYP4egoXwegJDVsfsOO625Hya35D3FJUHlPvFCV0PJ8_oSvMCfDFN_igUs8n2E-"
+hook = os.getenv('webhook')
 
 def count(num):
     global rep
